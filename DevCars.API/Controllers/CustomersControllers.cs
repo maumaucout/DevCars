@@ -31,7 +31,7 @@ namespace DevCars.API.Controllers
         public IActionResult PostOrder(int id, [FromBody] AddOrderInputModel model)
         {
             var extraItems = model.ExtraItems
-                .Select(e => new ExtraOrderItem(e.Description, e.Price))
+                .Select(e => new ExtraOrderItem(e.Description, e.Price)) 
                 .ToList();
 
             var car = _dbContext.Cars.SingleOrDefault(c => c.Id == model.IdCar);
